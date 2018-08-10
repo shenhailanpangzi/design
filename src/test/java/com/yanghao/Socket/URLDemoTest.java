@@ -18,7 +18,7 @@ public class URLDemoTest {
         //1、URL(Uniform Resource Locator)统一资源定位符，表示Internet上某一资源的地址，协议名：资源名称
             //创建一个URL的实例
             URL baidu =new URL("http://www.baidu.com");
-            URL url =new URL(baidu,"/index.html?username=tom#test");//？表示参数，#表示锚点
+            URL url =new URL(baidu,"/index.html?username=tom#mianshi");//？表示参数，#表示锚点
             url.getProtocol();//获取协议
             url.getHost();//获取主机
             url.getPort();//如果没有指定端口号，根据协议不同使用默认端口。此时getPort()方法的返回值为 -1
