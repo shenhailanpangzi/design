@@ -13,11 +13,34 @@ package com.yanghao.thread.BasicsDemo;
  */
 public class YieldTest {
     public static void main(String[] args) throws InterruptedException {
-        new MyThread("低级", 1).start();
-        new MyThread("中级", 5).start();
-        new MyThread("高级", 10).start();
+        /**线程优先级划分为1~10个等级 并且具有继承性，A线程启动B线程则两个线程优先级相同
+         *
+         */
+//        new MyThread("低级", 1).start();
+//        new MyThread("中级", 5).start();
+//        new MyThread("高级", 10).start();
+
+        /**........................start............s..............
+         * yield方法的作用是放弃当前的cpu资源，让给其他任务，将cup资源让出将导致速度变慢
+         */
+        new Thread(new Thread(){
+            @Override
+            public void run(){
+                System.out.println("当前线程的优先等级是："+this.getPriority());
+                long beginTime = System.currentTimeMillis();
+                int count = 0;
+                for (int i = 0; i < 100000; i++) {
+//                    Thread.yield();//让步会变慢
+                    count  = count+i;
+                }
+                long endTime = System.currentTimeMillis();
+                System.out.println("用时" + (endTime - beginTime) +"毫秒！");
+            }
+        }).start();
+        //...........................end...............................
     }
 }
+
 
 class MyThread extends Thread {
     public MyThread(String name, int pro) {

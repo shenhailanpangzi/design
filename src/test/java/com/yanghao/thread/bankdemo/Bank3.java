@@ -26,7 +26,6 @@ public class Bank3 {
     public void addMoney(int money) {
         count.set(count.get()+money);
         System.out.println(System.currentTimeMillis() + "存进：" + money);
-
     }
 
     // 取钱

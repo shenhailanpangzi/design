@@ -1,7 +1,7 @@
 package com.yanghao.thread.bankdemo;
 
 /**
- * @Description：
+ * @Description：一个不安全的多线程例子
  * @Author:yanghao
  * @Date：2018/8/1 11:27
  */

@@ -36,9 +36,15 @@ public class LockDemo {
         }
     }
 
+
     static class Data {
         private int data;// 共享数据
-
+        /**
+         *同步：synchronized取得的锁都是对象锁，一个对象一把锁，哪个线程先执行synchronized代码就持有当前对象锁
+         *异步：但是，即使该线程持有该对象锁，其他线程依然可以访问没有被synchronized修饰的方法
+         * A线程先持有对象object对象的lock，B线程可以以异步的方式调用没有被synchronized修饰的方法，也就是异步
+         * A线程先持有对象object对象的lock，B线程调用被synchronized修饰的方法则需要等待 也就是同步
+         */
         public synchronized void set(int data) {
             System.out.println(Thread.currentThread().getName() + "准备写入数据");
             try {

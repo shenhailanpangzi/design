@@ -26,9 +26,9 @@ public class DeathLock {
          * 这样，线程1"睡觉"睡完，线程2已经获取了lock2的对象锁了，线程1此时尝试获取lock2的对象锁，便被阻塞，此时一个死锁就形成了
          */
         Thread a = new Thread(new Lock1());
-//        Thread b = new Thread(new Lock2());
+        Thread b = new Thread(new Lock2());
         a.start();
-//        b.start();
+        b.start();
     }
 }
 class Lock1 implements Runnable{
